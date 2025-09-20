@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/greeting.css}" href="/css/greeting.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Nhúng file HTML tĩnh ngoài bằng custom processor my:insert -->
+        <div my:insert property="static-demo.html"></div>
+    <!-- Nhúng login.html động bằng custom processor my:include -->
+    <!-- <div my:include path="include/myfolder/login.html"></div> -->
+    <!-- Nhúng login.html động bằng custom processor my:insert -->
+    <div my:insert property="include/myfolder/login.html"></div>
+        <h1>Form</h1>
+        <!-- Demo custom processor: my:messagesNotPresent và my:messagesPresent -->
+        <div my:messagesNotPresent style="color: green; margin-bottom: 12px;">
+            Không có lỗi nào!
+        </div>
+        <div my:messagesPresent style="color: red; margin-bottom: 12px;">
+            Có lỗi! Vui lòng kiểm tra lại dữ liệu.
+        </div>
+        <p class="demo">Demo custom processor: <span my:uppercase="hello world"></span></p>
+        <form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+            <p>Id:<br><input type="text" th:field="*{id}" /></p>
+            <p>Message:<br><input type="text" th:field="*{content}" /></p>
+            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        </form>
+    </div>
+</body>
+</html>

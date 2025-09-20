@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Spring Boot App (Gradle)",
+			"type": "shell",
+			"command": ".\\gradlew.bat",
+			"args": [
+				"bootRun"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}
